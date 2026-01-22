@@ -672,6 +672,27 @@ files = [
 ]
 
 [[package]]
+name = "clarabel"
+version = "0.11.1"
+description = "Clarabel Conic Interior Point Solver for Rust / Python"
+optional = false
+python-versions = ">=3.9"
+groups = ["main"]
+files = [
+    {file = "clarabel-0.11.1-cp39-abi3-macosx_10_12_x86_64.whl", hash = "sha256:c39160e4222040f051f2a0598691c4f9126b4d17f5b9e7678f76c71d611e12d8"},
+    {file = "clarabel-0.11.1-cp39-abi3-macosx_11_0_arm64.whl", hash = "sha256:8963687ee250d27310d139eea5a6816f9c3ae31f33691b56579ca4f0f0b64b63"},
+    {file = "clarabel-0.11.1-cp39-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:e4837b9d0db01e98239f04b1e3526a6cf568529d3c19a8b3f591befdc467f9bb"},
+    {file = "clarabel-0.11.1-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:c8c41aaa6f3f8c0f3bd9d86c3e568dcaee079562c075bd2ec9fb3a80287380ef"},
+    {file = "clarabel-0.11.1-cp39-abi3-win_amd64.whl", hash = "sha256:557d5148a4377ae1980b65d00605ae870a8f34f95f0f6a41e04aa6d3edf67148"},
+    {file = "clarabel-0.11.1.tar.gz", hash = "sha256:e7c41c47f0e59aeab99aefff9e58af4a8753ee5269bbeecbd5526fc6f41b9598"},
+]
+
+[package.dependencies]
+cffi = "*"
+numpy = "*"
+scipy = "*"
+
+[[package]]
 name = "click"
 version = "8.3.1"
 description = "Composable command line interface toolkit"
@@ -1524,6 +1545,29 @@ files = [
 ]
 
 [[package]]
+name = "hierarchicalforecast"
+version = "1.4.0"
+description = "Hierarchical Methods Time Series Forecasting"
+optional = false
+python-versions = "<4.0,>=3.10"
+groups = ["main"]
+files = [
+    {file = "hierarchicalforecast-1.4.0-py3-none-any.whl", hash = "sha256:39b19455c0b3a8e74091d8df44924e55be860197ec3bf61b54adf0ce47c5b8d9"},
+    {file = "hierarchicalforecast-1.4.0.tar.gz", hash = "sha256:34667b08359fbeddb20c3192de604d139cef9b33155ac595ef7bc900f9436252"},
+]
+
+[package.dependencies]
+intel-cmplr-lib-rt = {version = "*", markers = "platform_machine == \"x86_64\" and sys_platform != \"darwin\""}
+matplotlib = "*"
+narwhals = ">=2.0"
+numba = "*"
+numpy = "*"
+pandas = ">=2.1.0"
+qpsolvers = {version = "*", extras = ["clarabel"]}
+scikit-learn = ">=1.2"
+utilsforecast = ">=0.2.12"
+
+[[package]]
 name = "httpcore"
 version = "1.0.9"
 description = "A minimal low-level HTTP client."
@@ -1585,6 +1629,19 @@ files = [
 
 [package.extras]
 all = ["flake8 (>=7.1.1)", "mypy (>=1.11.2)", "pytest (>=8.3.2)", "ruff (>=0.6.2)"]
+
+[[package]]
+name = "intel-cmplr-lib-rt"
+version = "2025.3.2"
+description = "Intel® oneAPI Runtime COMMON LIBRARIES package"
+optional = false
+python-versions = "*"
+groups = ["main"]
+markers = "platform_machine == \"x86_64\" and sys_platform != \"darwin\""
+files = [
+    {file = "intel_cmplr_lib_rt-2025.3.2-py2.py3-none-manylinux_2_28_x86_64.whl", hash = "sha256:c413efc1b2ddd8a879e9518bcbc375541b8b633951b2825684571d833aea26ad"},
+    {file = "intel_cmplr_lib_rt-2025.3.2-py2.py3-none-win_amd64.whl", hash = "sha256:89bba5899d0e057f0ecbc55768558e55bd7a3740950d0e4d0b01d25d8b62b020"},
+]
 
 [[package]]
 name = "ipykernel"
@@ -4657,6 +4714,44 @@ files = [
 cffi = {version = "*", markers = "implementation_name == \"pypy\""}
 
 [[package]]
+name = "qpsolvers"
+version = "4.8.2"
+description = "Quadratic programming solvers in Python with a unified API."
+optional = false
+python-versions = ">=3.8"
+groups = ["main"]
+files = [
+    {file = "qpsolvers-4.8.2-py3-none-any.whl", hash = "sha256:66cad899705b5ba009c6a280b2702c5f413e25c69beec2c6bcad72307fb22dd1"},
+    {file = "qpsolvers-4.8.2.tar.gz", hash = "sha256:2d1a2d5554425004efa8246c0b5d58a92669eea460199321b632af3c05d5b06c"},
+]
+
+[package.dependencies]
+clarabel = {version = ">=0.4.1", optional = true, markers = "extra == \"clarabel\""}
+numpy = ">=1.15.4"
+scipy = ">=1.2.0"
+
+[package.extras]
+clarabel = ["clarabel (>=0.4.1)"]
+cvxopt = ["cvxopt (>=1.2.6)"]
+daqp = ["daqp (>=0.5.1)"]
+ecos = ["ecos (>=2.0.8)"]
+gurobi = ["gurobipy (>=9.5.2)"]
+highs = ["highspy (>=1.1.2.dev3)"]
+jaxopt = ["jaxopt (>=0.8.3)"]
+kvxopt = ["kvxopt (>=1.3.2)"]
+mosek = ["cvxopt (>=1.2.6)", "mosek (>=10.0.40)"]
+open-source-solvers = ["qpsolvers[clarabel,cvxopt,daqp,ecos,highs,jaxopt,osqp,piqp,proxqp,qpalm,qpax,quadprog,scs,sip]"]
+osqp = ["osqp (>=0.6.2)"]
+piqp = ["piqp (>=0.2.2)"]
+proxqp = ["proxsuite (>=0.2.9)"]
+qpalm = ["qpalm (>=1.2.1)"]
+qpax = ["qpax (>=0.0.9)"]
+quadprog = ["quadprog (>=0.1.11)"]
+scs = ["scs (>=3.2.0)"]
+sip = ["sip-python (>=0.0.2)"]
+wheels-only = ["qpsolvers[cvxopt,daqp,ecos,highs,piqp,proxqp,qpalm,sip]"]
+
+[[package]]
 name = "ray"
 version = "2.53.0"
 description = "Ray provides a simple, universal API for building distributed applications."
@@ -6319,4 +6414,4 @@ cffi = ["cffi (>=1.17,<2.0) ; platform_python_implementation != \"PyPy\" and pyt
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10,<3.13"
-content-hash = "bedaac30d2f964f5a873ededd42375c341b5c0aa3dce0fba8583742569cab21e"
+content-hash = "5697b209223248483992527840e2809922dd12ce7befc0fc7b3d14b342c66ce5"
