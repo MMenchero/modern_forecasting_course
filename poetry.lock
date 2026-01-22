@@ -3031,14 +3031,14 @@ spark = ["fugue", "pyspark (>=3.5)"]
 
 [[package]]
 name = "nixtla"
-version = "0.6.6"
+version = "0.7.2"
 description = "Python SDK for Nixtla API (TimeGPT)"
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
 files = [
-    {file = "nixtla-0.6.6-py3-none-any.whl", hash = "sha256:bc8c941b9265f22ae008c430e5bc88d6d5ab427a54905e939529c4d576439128"},
-    {file = "nixtla-0.6.6.tar.gz", hash = "sha256:af8d5275cc0ca9c79f4990166f0fa8c3470646a59ea14a8d7fc2f92e5b7461c9"},
+    {file = "nixtla-0.7.2-py3-none-any.whl", hash = "sha256:e8be55be3057432b043a04cea314df0caa1a3a6f63fede5bb8063a7609bff74a"},
+    {file = "nixtla-0.7.2.tar.gz", hash = "sha256:66b218662f0c738130e0a6a5be4edb0b6dc70536c317cdd0287dc01c350c1c2a"},
 ]
 
 [package.dependencies]
@@ -3049,12 +3049,12 @@ pandas = "*"
 pydantic = ">=1.10"
 tenacity = "*"
 tqdm = "*"
-utilsforecast = ">=0.2.8"
+utilsforecast = ">=0.2.15"
 
 [package.extras]
-date-extras = ["holidays"]
-dev = ["black", "datasetsforecast", "fire", "hierarchicalforecast", "holidays", "ipywidgets", "jupyterlab", "nbdev", "neuralforecast", "numpy (<2)", "plotly", "polars", "pre-commit", "pyreadr", "python-dotenv", "pyyaml", "setuptools (<70)", "statsforecast", "tabulate", "utilsforecast[plotting]"]
-distributed = ["dask (<=2024.12.1)", "fugue[dask,ray,spark] (>=0.8.7)", "pandas (<2.2)", "ray (<2.6.3)"]
+date-extras = ["holidays", "pandas_market_calendars"]
+dev = ["black", "datasetsforecast", "fire", "hierarchicalforecast", "holidays", "ipython (<=8.32.0)", "ipywidgets", "jupyterlab", "lightgbm", "mlforecast", "neuralforecast", "numpy (<2)", "pandas_market_calendars", "pip-licenses", "plotly", "polars", "pre-commit", "pyarrow (<21.0.0)", "pyreadr (<0.5.3)", "pytest", "pytest-cov", "pytest-rerunfailures", "python-dotenv", "pyyaml", "setuptools (<70)", "shap", "statsforecast", "tabulate", "utilsforecast[plotting]"]
+distributed = ["dask (<=2024.12.1)", "fugue[dask,ray,spark] (>=0.8.7)", "pandas (<2.2)", "ray (<=2.20.0)"]
 plotting = ["utilsforecast[plotting]"]
 
 [[package]]
@@ -4374,6 +4374,21 @@ files = [
 
 [package.dependencies]
 six = ">=1.5"
+
+[[package]]
+name = "python-dotenv"
+version = "1.2.1"
+description = "Read key-value pairs from a .env file and set them as environment variables"
+optional = false
+python-versions = ">=3.9"
+groups = ["main"]
+files = [
+    {file = "python_dotenv-1.2.1-py3-none-any.whl", hash = "sha256:b81ee9561e9ca4004139c6cbba3a238c32b03e4894671e181b671e8cb8425d61"},
+    {file = "python_dotenv-1.2.1.tar.gz", hash = "sha256:42667e897e16ab0d66954af0e60a9caa94f0fd4ecf3aaf6d2d260eec1aa36ad6"},
+]
+
+[package.extras]
+cli = ["click (>=5.0)"]
 
 [[package]]
 name = "python-json-logger"
@@ -6304,4 +6319,4 @@ cffi = ["cffi (>=1.17,<2.0) ; platform_python_implementation != \"PyPy\" and pyt
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10,<3.13"
-content-hash = "f4d36fa486d423a236869edda8129858dabeec911d2479d503fdbde280839500"
+content-hash = "bedaac30d2f964f5a873ededd42375c341b5c0aa3dce0fba8583742569cab21e"

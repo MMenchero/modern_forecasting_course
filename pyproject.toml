@@ -16,9 +16,10 @@ plotly = "^5.18"
 statsforecast = "^1.7"
 mlforecast = "^0.13"
 neuralforecast = "^1.7"
-nixtla = "^0.6"
+nixtla = "^0.7"
 jupyter = "^1.0"
 ipykernel = "^6.29"
+python-dotenv = "^1.2.1"
 
 [build-system]
 requires = ["poetry-core"]
