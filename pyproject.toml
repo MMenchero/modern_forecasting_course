@@ -21,6 +21,7 @@ jupyter = "^1.0"
 ipykernel = "^6.29"
 python-dotenv = "^1.2.1"
 hierarchicalforecast = "^1.4.0"
+lightgbm = "^4.6.0"
 
 [build-system]
 requires = ["poetry-core"]
